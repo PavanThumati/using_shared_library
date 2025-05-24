@@ -1,0 +1,23 @@
+@Library('sample_library') _
+pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                script {
+                    dummy() // Call the dummy to make sure library is loaded
+                    sayHello()
+                }
+            }
+        }
+        stage('Testing') {
+            steps {
+                script {
+                    
+                    sayHello("DAN")
+                    sayHello()
+                }
+            }
+        }
+    }
+}
